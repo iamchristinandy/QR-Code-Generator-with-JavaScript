@@ -12,13 +12,16 @@
     <script type="text/javascript">
         // function to show the alert when the submit button is clicked
         function showit(){
-            alert(document.getElementById("atext").innerHTML);
+            alert(document.getElementById("atext").value);
         }
     </script>
     <!-- <input type="text" id="atext"> -->
     <!-- <textarea id="atext" rows = "10", cols="10"></textarea> -->
-
-    <p id="atext">Hello friends. It's Andrews here.</p>
+    <!-- <p id="atext">Hello friends. It's Andrews here.</p> -->
+     <select id="atext">
+        <option>One</option>
+        <option>Two</option>
+     </select>
     <!-- Adding a button to click -->
     <input type="submit" value="Click Me" onclick="showit()">
 
