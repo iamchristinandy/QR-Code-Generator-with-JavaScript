@@ -16,7 +16,11 @@
             var myimg=document.getElementById("img");
             var mytext=document.getElementById("qrtext").value;
             var mysize=document.getElementById("size").value;
-            
+
+            if (mytext =="" && mysize=="100"){
+                myimg.src=gapi+"100*100"+"&chl"+mytext;
+                // https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=100*100&chl=Welcome
+            }
         }
     </script>
     
