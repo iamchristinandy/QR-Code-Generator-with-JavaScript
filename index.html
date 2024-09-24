@@ -1,5 +1,3 @@
-<!-- Use (!+ Tab button) to insert basic start HTML Code -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,29 +11,15 @@
     <!-- Creating a javascript link -->
     <script type="text/javascript">
         function genQR(){
-            var gapi = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="
-            var myimg=document.getElementById("img");
-            var mytext=document.getElementById("qrtext").value;
-            var mysize=document.getElementById("size").value;
+            var gapi = "https://api.qrserver.com/v1/create-qr-code/?size=";
+            var myimg = document.getElementById("img");
+            var mytext = document.getElementById("qrtext").value;
+            var mysize = document.getElementById("size").value;
 
-            if (mytext =="" && mysize=="100"){
-                myimg.src=gapi+"100*100"+"&chl"+mytext;
-                // https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=100*100&chl=Welcome
-            }
-            else if(mytext !=="" && mysize=="150") {
-                myimg.src=gapi+"150*150"+"&chl"+ mytext;
-            }
-            else if (mytext !=="" && mysize=="200"){
-                myimg.src=gapi+"200*200"+"&chl"+ mytext;
-            }
-            else if (mytext !=="" && mysize=="250"){
-                myimg.src=gapi+"250*250"+"&chl"+ mytext;
-            }
-            else if (mytext !=="" && mysize=="300"){
-                myimg.src=gapi+"300*300"+"&chl"+ mytext;
-            }
-            else {
-                alert("Please enter text")
+            if (mytext !== "") {
+                myimg.src = gapi + mysize + "x" + mysize + "&data=" + encodeURIComponent(mytext);
+            } else {
+                alert("Please enter text");
             }
         }
     </script>
@@ -43,20 +27,20 @@
     <div class="grid">
         <h2 align="center">QR Code Generator</h2>
         <center>
-    <img src="" id="img">
+            <img src="" id="img">
         </center>
-    <select id="size">
-        <option value="100">100*100</option>
-        <option value="150">150*150</option>
-        <option value="200">200*200</option>
-        <option value="250" selected>250*250</option>
-        <option value="300">300*300</option>
-    </select>
-    <br><br>
-    <textarea placeholder="Enter Your Text" id="qrtext"></textarea>
-    <br><br>
-    <input type="submit" value="Generate" onclick="genQR()">
-    <p>Developed by Andrews Baah Kwafo</p>
+        <select id="size">
+            <option value="100">100x100</option>
+            <option value="150">150x150</option>
+            <option value="200">200x200</option>
+            <option value="250" selected>250x250</option>
+            <option value="300">300x300</option>
+        </select>
+        <br><br>
+        <textarea placeholder="Enter Your Text" id="qrtext"></textarea>
+        <br><br>
+        <input type="submit" value="Generate" onclick="genQR()">
+        <p>Developed by Andrews Baah Kwafo</p>
     </div>
 </body>
 </html>
